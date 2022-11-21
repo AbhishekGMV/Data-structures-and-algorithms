@@ -20,11 +20,24 @@ class Array:
         """
         Read array items
         """
+        if self.size == 0:
+            return
+
         for item in self.array:
             print(item)
 
+    def find(self, value):
+        for index in range(len(self.array)):
+            if self.array[index] == value:
+                return index
+        return -1
+
+    def isEmpty(self):
+        return self.size == 0
+
     def __len__(self):
         return self.size
+
 
 arr = Array(5)
 arr.append(1)
