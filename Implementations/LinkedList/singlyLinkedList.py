@@ -3,6 +3,7 @@ class Node:
         self.value = value
         self.nextNode = nextNode
 
+
 class LinkedList:
     def __init__(self, head):
         self.head = head
@@ -40,11 +41,12 @@ class LinkedList:
 
     def deleteFromEnd(self):
         if not self.head:
-            return 
+            return
         head = self.head
         while head.nextNode.nextNode:
             head = head.nextNode
         head.nextNode = None
+
 
 n0 = Node(0)
 n1 = Node(1)
@@ -60,4 +62,5 @@ ll = LinkedList(n1)
 ll.traverse()
 ll.deleteFromStart()
 ll.deleteFromEnd()
+print("After deleting from start and end")
 ll.traverse()
