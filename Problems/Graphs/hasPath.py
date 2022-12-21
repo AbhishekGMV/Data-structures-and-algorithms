@@ -6,6 +6,13 @@ graph = {
     'e': ['d']
 }
 
+"""
+a -> b -> e ->  d
+                ^
+                |
+                c
+"""
+
 
 def hasPath(graph, src, dest):
     if src == dest:
