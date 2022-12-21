@@ -14,15 +14,31 @@ a -> b -> e ->  d
 """
 
 
-def hasPath(graph, src, dest):
+def hasPathDFS(graph, src, dest):
     if src == dest:
         return True
 
     for neighbor in graph[src]:
-        if hasPath(graph, neighbor, dest):
+        if hasPathDFS(graph, neighbor, dest):
             return True
     return False
 
 
-print(hasPath(graph, 'a', 'e'))
-print(hasPath(graph, 'a', 'c'))
+def hasPathBFS(graph, src, dest):
+    q = [src]
+    while q:
+        curr = q.pop()
+
+        if curr == dest:
+            return True
+
+        for neighbor in graph[curr]:
+            q.append(neighbor)
+
+    return False
+
+
+print(hasPathDFS(graph, 'a', 'e'))
+print(hasPathDFS(graph, 'a', 'c'))
+print(hasPathBFS(graph, 'a', 'e'))
+print(hasPathBFS(graph, 'a', 'c'))
